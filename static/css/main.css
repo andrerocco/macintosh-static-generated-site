@@ -1,0 +1,412 @@
+@font-face {
+    font-family: 'Pixel Operator';
+    src:  local('Public Sans Regular'), url('/fonts/PixelOperator.ttf');
+}
+@font-face {
+    font-family: 'Pixel Operator HB';
+    src:  local('Public Sans Regular'), url('/fonts/PixelOperatorMonoHB.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pixel Operator';
+    
+    -webkit-user-drag: none;
+}
+body {
+    background-color: black;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: black;
+}
+::selection {
+    color: white;
+    background: black;
+}
+.no-select {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-track {
+    background-image: url('/images/scrollbar-background.png');
+    border-left: 2px solid black;
+}
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border: 0px solid transparent;
+    background-clip: content-box;
+    
+    border-left: 2px solid transparent;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+/* Medidas em 'px' duplicadas em relação à resolução do 'Macintosh System 1' */
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#screen {
+    height: 684px;
+    width: 1024px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url("/images/pixelated-background.png");
+}
+nav {
+    height: 38px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 2px solid black;
+    z-index: 9999999;
+
+    padding-left: 22px;
+    padding-top: 1px;
+
+    display: grid; 
+    grid-template-columns: min-content min-content min-content min-content min-content; 
+    gap: 0px 2px; 
+}
+#apple-icon-img {
+    margin-right: 8px;
+}
+nav img:hover {
+    cursor: pointer;
+}
+
+#desktop {
+    width: 100%;
+    height: calc(100% - 40px);
+    box-sizing: border-box;
+    position: relative;
+}
+#desktop-grid {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 128px 128px 128px 128px 128px 128px 128px 128px; 
+    grid-template-rows: 128px 128px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". . . . . ."; 
+}
+.desktop-icon {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    cursor: pointer;
+}
+.icon-image img {
+    height: min-content;
+    width: auto;
+}
+.icon-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.icon-text h2 {
+    font-size: 20px;
+    line-height: 19px;
+    font-weight: 200;
+    width: fit-content;
+
+    color: black;
+    background-color: white;
+
+    margin-top: 2px;
+    padding: 0px 3px;
+}
+
+.screen-window {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 800px;
+    height: 500px;
+    z-index: 2;
+
+    background-color: white;
+    border: 2px solid black;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    transition: transform 0.15s linear;
+}
+.window-header {
+    height: 32px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+
+    border-bottom: 2px solid black;
+    background-color: white;
+    background-image: url(/images/header-stripes.png);
+}
+.window-header .window-header-title {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    inline-size: min-content;
+    white-space: nowrap;
+}
+.window-header .window-header-title h1 {
+    font-family: 'Pixel Operator HB';
+    font-size: 28px;
+    font-weight: 400;
+    padding: 0 7px;
+    background-color: white;
+}
+.window-header .window-header-close {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(calc(-50% + 2px));
+
+    cursor: pointer;
+}
+.window-content {
+    padding: 11px 24px;
+}
+.window-content h2 {
+    font-family: 'Pixel Operator HB';
+    font-size: 26px;
+    line-height: 40px;
+    font-weight: 400;
+}
+.window-content p {
+    font-size: 26px;
+}
+#pfp-jpg-path {
+    text-decoration: underline;
+    color: rgb(116, 116, 116);
+    cursor: pointer;
+}
+
+#pfp-window {
+    height: calc(300px + 34px);
+    width: 300px;
+}
+#pfp-window .window-content {
+    padding: 0 !important;
+}
+#pfp-window .window-content img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* Relógio */
+
+#clock-window {
+    width: 430px;
+    height: 200px;
+    background-color: black;
+}
+#clock-window .window-content {
+    width: 100%;
+    height: calc(100% - 34px); /* Total da janela menos a altura do header */
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    overflow: auto;
+}
+#clock-window .window-content #time-containter {
+    width: fit-content;
+
+    color: white;
+    font-family: 'Pixel Operator HB';
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 85%;
+}
+#clock-window .window-content #date {
+    color: white;
+    font-size: 28px;
+}
+
+/* Calculadora */
+
+#calculator-header {
+    background-color: black !important; /* Inverte a cor do header */
+    background-image: none !important; /* Remove a imagem das listras do header */
+}
+#calculator-header .window-header-title {
+    color: white !important; /* Cor do texto do header em braco */
+    left: 82% !important;
+    transform: translate(-82%, -50%) !important; /* Ajusta a posição do texto do header */
+}
+#calculator-header .window-header-title h1 {
+    background-color: black !important;
+}
+#calculator-header .window-header-close {
+    left: 8px !important; /* Ajusta a posição do ícone do header */
+}
+#calculator-window {
+    width: 208px !important;
+    height: 332px !important;
+    border-radius: 11px !important;
+    overflow: hidden !important;
+    background-color: black !important; /* Define o fundo da janela como preto */
+}
+#calculator-window .window-content {
+    background-image: url(/images/calculator-background.png) !important; /* Define o fundo da parte interna da janela como pontilhado */
+    border-radius: 8px !important; /* Arredonda a borda do fundo interno */
+    padding: 0 !important; /* Tira o padding padrão das janelas */
+    height: calc(100% - 34px) !important; /* 100% - Altura do header - Borda do header */
+    width: 100% !important;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#calculator-screen {
+    width: 162px;
+    height: 40px;
+    margin-bottom: 8px;
+
+    background: white;
+    color: black;
+    border: 2px solid black;
+
+    overflow: hidden; 
+}
+#calculator-screen #calculator-operand {
+    height: 100%;
+    width: auto;
+    margin: 0px 8px; /* Distância da borda da tela */
+
+    font-size: 24px;
+    display: flex; /* Posiciona o texto verticalmente no centro e horizontalmente na direita */
+    justify-content: flex-end;
+    align-items: center;
+}
+#calculator-bottom-zero { grid-area: h-two; }
+#calculator-right-equals { grid-area: v-two; }
+#calculator-grid {
+    width: 164px;
+    height: fit-content;
+    display: grid;
+
+    gap: 8px 4px;
+    grid-template-columns: 38px 38px 38px 38px; 
+    grid-template-rows: 36px 36px 36px 36px 36px; 
+    grid-template-areas: 
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . v-two"
+    "h-two h-two . v-two";
+}
+#calculator-grid button {
+    height: auto;
+    width: auto;
+    
+    background: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+
+    margin-bottom: 4px;
+    margin-right: 2px;
+    filter: drop-shadow(2px 4px 0 black); /* Sombra dos botões */
+
+    font-size: 26px;
+}
+
+
+
+
+/* CONFIGURAÇÕES DAS TELAS */
+
+@media screen and (max-width: 1028px) {
+    #screen {
+        height: 97%;
+        width: 97%;
+    }
+    .screen-window {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 98%;
+        height: 98%;
+        transform: translateY(-8px);
+        overflow: scroll;
+    }
+    .window-header {
+        position: sticky;
+        top: 0;
+    }
+    .window-content h2 {
+        line-height: 120%;
+        padding-bottom: 10px;
+    }
+}
+@media screen and (min-width: 550px) and (max-width: 1028px) {
+    #desktop-grid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 128px 128px 128px 128px;
+        gap: 10px 0;
+        grid-template-areas: 
+        ". . . ."
+        ". . . .";
+    }
+}
+@media screen and (min-width: 450px) and (max-width: 550px) {
+    #desktop-grid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 128px 128px 128px 128px;
+        gap: 10px 0;
+        grid-template-areas: 
+        ". . ."
+        ". . ."
+        ". . .";
+    }
+}
+@media screen and (max-width: 450px) {
+    #desktop-grid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 128px 128px 128px 128px;
+        gap: 10px 0;
+        grid-template-areas: 
+        ". ."
+        ". ."
+        ". ."
+        ". .";
+    }
+}

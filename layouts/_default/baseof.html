@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ partial "head.html" . }}
+
+<body>
+    <main>
+        <div id="screen">
+            {{ partial "nav.html" . }}
+
+            <div id="desktop">
+                {{ block "main" . }}
+                {{ end }}
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

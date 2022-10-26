@@ -1,0 +1,9 @@
+# Font style metadata
+name = "Default"
+
+# Optional Google font URL
+# google_fonts = ""
+
+# Font families
+heading_font = "Pixel Operator HB"
+body_font = "Pixel Operator"
