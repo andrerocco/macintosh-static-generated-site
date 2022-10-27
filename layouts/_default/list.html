@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div id="desktop-grid" class="no-select">
+    {{ range .Pages }}
+        <a href="{{.Permalink}}"><div class="desktop-icon">
+            <div class="icon-image">
+                <img srcset="images/note-icon-1x.png 0.5x, images/note-icon-2x.png" src="images/note-icon-2x.png" alt="Macintosh notes icon">
+            </div>
+            <div class="icon-text">
+                <h2>{{ .Page.Title }}.txt</h2>
+            </div>
+        </div></a>
+    {{ end }}
+</div>
+{{ end }}

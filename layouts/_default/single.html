@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="screen-window">
+    <div class="window-header no-select">
+        <div class="window-header-title"><h1>{{ .Page.Title }}.txt</h1></div>
+        <a href="../"><div class="window-header-close"><img src="/images/close-icon-x.png" alt="Close"></div></a>
+    </div>
+    <div class="window-content">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
