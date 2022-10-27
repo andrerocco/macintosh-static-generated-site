@@ -1,143 +1,84 @@
-{{/*
-    Essa tag define que o bloco "main" (criado em baseof.html) receberá o que estiver antes do end
-    Nesse caso, o que está antes do end é .Content, mas poderia ser mais HTML
-*/}}
-
 {{ define "main" }}
 <div id="desktop-grid" class="no-select">
-
-    <div class="desktop-icon" id="sobre-icon"> <!-- Quem é (nome e foto)? De onde veio (cidade onde mora)? Já tem experiência com computação? Se sim, qual? -->
+    <!-- Ícones das páginas .txt geradas a partir de content -->
+    {{ range .Pages }}
+    <div class="desktop-icon" id="{{ .Page.Title }}-icon">
         <div class="icon-image">
             <img srcset="images/note-icon-1x.png 0.5x, images/note-icon-2x.png" src="images/note-icon-2x.png" alt="Macintosh notes icon">
         </div>
         <div class="icon-text">
-            <h2>sobre.txt</h2>
+            <h2>{{ .Page.Title }}.txt</h2>
         </div>
     </div>
+    {{ end }}
 
-    <div class="desktop-icon" id="porqueccs-icon"> <!-- Por que ciências da computação? Por que a UFSC? -->
-        <div class="icon-image">
-            <img srcset="images/note-icon-1x.png 0.5x, images/note-icon-2x.png" src="images/note-icon-2x.png" alt="Macintosh notes icon">
-        </div>
-        <div class="icon-text">
-            <h2>por que</h2>
-            <h2>ccs.txt</h2>
-        </div>
-    </div>
-
-    <!-- <div class="desktop-icon" id="extra-icon">
-        <div class="icon-image">
-            <img src="images/folder-icon-cropped-2x.png" alt="Macintosh notes icon">
-        </div>
-        <div class="icon-text">
-            <h2>Extra</h2>
-        </div>
-    </div> -->
-
-    <div class="desktop-icon" id="pfp-icon">
-        <div class="icon-image">
-            <img src="images/picture-icon-2x.png" alt="Macintosh image icon">
-        </div>
-        <div class="icon-text">
-            <h2>pfp.jpg</h2>
-        </div>
-    </div>
-
+    <!-- Ícone calculadora -->
     <div class="desktop-icon" id="calculator-icon">
         <div class="icon-image">
-            <img src="images/calculator-icon-2x.png" alt="Macintosh image icon">
+            <img src="/images/calculator-icon-2x.png" alt="Macintosh image icon">
         </div>
         <div class="icon-text">
             <h2>Calculator</h2>
         </div>
     </div>
 
+    <!-- Ícone relógio -->
     <div class="desktop-icon" id="clock-icon">
         <div class="icon-image">
-            <img src="images/alarm-clock-icon-2x.png" alt="Macintosh image icon">
+            <img src="/images/alarm-clock-icon-2x.png" alt="Macintosh image icon">
         </div>
         <div class="icon-text">
             <h2>Clock</h2>
         </div>
     </div>
 
-</div>
-
-<!-- As janelas tem a tag [data-window] -->
-
-<div data-window class="screen-window" id="sobre-window" style="transform: scale(0); z-index: 1">
-    <div class="window-header no-select">
-        <div class="window-header-title"><h1>sobre.txt</h1></div>
-        <div class="window-header-close"><img src="images/close-icon-x.png" alt="Close"></div>
-    </div>
-    <div class="window-content">
-        <h2>QUEM SOU EU?</h2>
-        <p>Me chamo André Amaral Rocco<br>Nasci no Rio de Janeiro, mas moro em Florianópolis há mais de 10 anos (desde meus 8 anos de idade)</p>
-        <br>
-        <h2>MINHA EXPERIÊNCIA EM COMPUTAÇÃO...</h2>
-        <p>Atualmente, envolve principalmente desenvolvimento web (Web Design, HTML, CSS e Java Script) e um médio conhecimento de Python e GIT</p>
-        <br>
-        <h2>HOBBIES!</h2>
-        <p>Esporte (como skate, tênis e atletismo), criação de animações 3D, produção de vídeos, fotografia, além de design de moda e costura.</p>
-        <br>
-        <h2>EXTRA (!)</h2>
-        <p id="pfp-jpg-path">C:/desktop/pfp.jpg</p>
-    </div>
-</div>
-
-<div data-window class="screen-window" id="porqueccs-window" style="transform: scale(0); z-index: 1">
-    <div class="window-header no-select">
-        <div class="window-header-title"><h1>por que css.txt</h1></div>
-        <div class="window-header-close"><img src="images/close-icon-x.png" alt="Close"></div>
-    </div>
-    <div class="window-content">
-        <h2>POR QUE CIÊNCIA DA COMPUTAÇÃO? [...]</h2>
-        <p>Sempre tive vontade de conseguir trazer minhas ideias (e as de outras pessoas) para a existência. Aprender design me deu essa habilidade até um certo ponto, porém, projetos relacionados à computação sempre chamaram minha atenção, mesmo que normalmente eram "fora do alcance": algo que eu não tinha conhecimento o suficiente para realizar. Acredito que estudando Ciência da Computação obterei o <i>CONHECIMENTO</i> necessário para ser capaz de trazer essas diversas ideias à vida!</p>
-        <br>
-        <h2>[...] NA UFSC!?</h2>
-        <p>A UFSC sempre foi uma instituição referência em aprendizado para mim. Se em algum momento eu pensei em fazer outro curso, esse curso teria que ser na UFSC! A combinação de um ensino de qualidade em um ambiente incrível localizado em Florianópolis me conquistou!</p>
-    </div>
-</div>
-
-<div data-window class="screen-window" id="pfp-window" style="transform: scale(0); z-index: 1">
-    <div class="window-header no-select">
-        <div class="window-header-title"><h1>pfp.jpg</h1></div>
-        <div class="window-header-close"><img src="images/close-icon-x.png" alt="Close"></div>
-    </div>
-    <div class="window-content">
-        <img src="src/profile-picture-pb.png" alt="Me_irl">
-    </div>
-</div> 
-
-<div data-window class="screen-window" id="calculator-window" style="transform: scale(0); z-index: 1">
-    <div class="window-header no-select" id="calculator-header">
-        <div class="window-header-title" id="calculator-header-title"><h1>Calculator</h1></div>
-        <div class="window-header-close"><img src="images/close-icon-i.png" alt="Close"></div>
-    </div>
-    <div class="window-content">
-        <div id="calculator-screen">
-            <div data-operand id="calculator-operand">0</div>
+    <!-- Páginas .txt geradas a partir de content  -->
+    {{ range .Pages }}
+    <div data-window class="screen-window" id="{{ .Page.Title }}-window" style="transform: scale(0); z-index: 1">
+        <div class="window-header no-select">
+            <div class="window-header-title"><h1>{{ .Page.Title }}.txt</h1></div>
+            <div class="window-header-close"><img src="/images/close-icon-x.png" alt="Close"></div>
         </div>
-        <div id="calculator-grid" class="no-select">
-            <button data-calculator-clear>C</button><button data-equals>=</button><button data-operation>/</button><button data-operation>*</button>
-            <button data-number>7</button><button data-number>8</button><button data-number>9</button><button data-operation>-</button>
-            <button data-number>4</button><button data-number>5</button><button data-number>6</button><button data-operation>+</button>
-            <button data-number>1</button><button data-number>2</button><button data-number>3</button><button data-equals id="calculator-right-equals">=</button>
-            <button data-number id="calculator-bottom-zero">0</button><button data-number>.</button>
+        <div class="window-content">
+            {{ .Content }}
         </div>
     </div>
-</div>
+    {{ end }}
 
-<div data-window class="screen-window" id="clock-window" style="transform: scale(0); z-index: 1">
-    <div class="window-header no-select">
-        <div class="window-header-title"><h1>Clock</h1></div>
-        <div class="window-header-close"><img src="images/close-icon-x.png" alt="Close"></div>
-    </div>
-    <div class="window-content">
-        <div id="date"></div>
-        <div id="time-containter">
-            <span id="clock-real-time">00:00:00</span>
+    <!-- Janela calculadora -->
+    <div data-window class="screen-window" id="calculator-window" style="transform: scale(0); z-index: 1">
+        <div class="window-header no-select" id="calculator-header">
+            <div class="window-header-title" id="calculator-header-title"><h1>Calculator</h1></div>
+            <div class="window-header-close"><img src="/images/close-icon-i.png" alt="Close"></div>
+        </div>
+        <div class="window-content">
+            <div id="calculator-screen">
+                <div data-operand id="calculator-operand">0</div>
+            </div>
+            <div id="calculator-grid" class="no-select">
+                <button data-calculator-clear>C</button><button data-equals>=</button><button data-operation>/</button><button data-operation>*</button>
+                <button data-number>7</button><button data-number>8</button><button data-number>9</button><button data-operation>-</button>
+                <button data-number>4</button><button data-number>5</button><button data-number>6</button><button data-operation>+</button>
+                <button data-number>1</button><button data-number>2</button><button data-number>3</button><button data-equals id="calculator-right-equals">=</button>
+                <button data-number id="calculator-bottom-zero">0</button><button data-number>.</button>
+            </div>
         </div>
     </div>
+
+    <!-- Janela relógio -->
+    <div data-window class="screen-window" id="clock-window" style="transform: scale(0); z-index: 1">
+        <div class="window-header no-select">
+            <div class="window-header-title"><h1>Clock</h1></div>
+            <div class="window-header-close"><img src="/images/close-icon-x.png" alt="Close"></div>
+        </div>
+        <div class="window-content">
+            <div id="date"></div>
+            <div id="time-containter">
+                <span id="clock-real-time">00:00:00</span>
+            </div>
+        </div>
+    </div>
+
 </div>
 {{ end }}
+
