@@ -1,7 +1,7 @@
 ---
 title: "sobre"
 date: 2022-10-26T15:45:16-03:00
-draft: true
+draft: false
 ---
 
 ## QUEM SOU EU?
