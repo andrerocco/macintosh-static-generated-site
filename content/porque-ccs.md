@@ -2,6 +2,8 @@
 title: "porque-ccs"
 date: 2022-10-26T17:07:48-03:00
 draft: true
+
+# icon_url: '/images/folder-icon-cropped-2x.png'
 ---
 
 ## POR QUE CIÊNCIA DA COMPUTAÇÃO? [...]

@@ -4,7 +4,7 @@
     {{ range .Pages }}
     <div class="desktop-icon" id="{{ .Page.Title }}-icon">
         <div class="icon-image">
-            <img srcset="images/note-icon-1x.png 0.5x, images/note-icon-2x.png" src="images/note-icon-2x.png" alt="Macintosh notes icon">
+            <img src="{{ with .Params.icon_url }}{{ . }}{{ else }}/images/note-icon-2x.png{{ end }}" alt="Macintosh notes icon">
         </div>
         <div class="icon-text">
             <h2>{{ .Page.Title }}.txt</h2>
