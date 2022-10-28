@@ -1,17 +1,4 @@
 # Configurações do site
 baseURL = 'http://example.org/'
 languageCode = 'pt-br'
-title = 'My New Hugo Site'
-
-# Enter your tracking code to enable Google Analytics
-# googleAnalytics = ""
-
-[params]
-  # Provide your metadata here.
-  name = "Active Transport Futures"
-  description = "global scale open source software for planning urban futures for active transport"
-
-  # Link custom assets relative to /static
-  # custom_css = ["static/css/main.css"]
-  # custom_js  = []
-  # favicon    = "favicon.ico"
+title = '/andre-rocco's Macintosh System 1.0'
