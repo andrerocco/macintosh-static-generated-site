@@ -15,7 +15,7 @@
     <!-- Ícone calculadora -->
     <div class="desktop-icon" id="calculator-icon">
         <div class="icon-image">
-            <img src="/images/calculator-icon-2x.png" alt="Macintosh image icon">
+            <img src="/images/calculator-icon-2x.png" alt="Macintosh calculator icon">
         </div>
         <div class="icon-text">
             <h2>Calculator</h2>
@@ -25,10 +25,20 @@
     <!-- Ícone relógio -->
     <div class="desktop-icon" id="clock-icon">
         <div class="icon-image">
-            <img src="/images/alarm-clock-icon-2x.png" alt="Macintosh image icon">
+            <img src="/images/alarm-clock-icon-2x.png" alt="Macintosh clock icon">
         </div>
         <div class="icon-text">
             <h2>Clock</h2>
+        </div>
+    </div>
+
+    <!-- Ícone forms -->
+    <div class="desktop-icon" id="forms-icon">
+        <div class="icon-image">
+            <img src="/images/contact-icon-2x.png" alt="Macintosh forms icon">
+        </div>
+        <div class="icon-text">
+            <h2>Contact me</h2>
         </div>
     </div>
 
@@ -76,6 +86,40 @@
             <div id="time-containter">
                 <span id="clock-real-time">00:00:00</span>
             </div>
+        </div>
+    </div>
+
+    <!-- Forms -->
+    <div data-window class="screen-window" id="forms-window" style="transform: scale(0); z-index: 1">
+        <div class="window-header no-select">
+            <div class="window-header-title"><h1>Contact me</h1></div>
+            <div class="window-header-close"><img src="/images/close-icon-x.png" alt="Close"></div>
+        </div>
+        <div class="window-content" id="contact-form-window">
+            <form id="contact-form">
+                <fieldset class="form-field" tabindex="1">
+                    <label for="name">
+                        NOME:
+                        <input name="name" type="text" placeholder="Nome completo" required autocomplete="off">
+                    </label>
+                    
+                </fieldset>
+                <div class="form-field" tabindex="1">
+                    <label for="email">
+                        EMAIL:
+                        <input name="email" type="text" placeholder="nome@email.com" required autocomplete="off">
+                    </label>
+                </div>
+                <fieldset class="form-field" tabindex="1">
+                    <label for="mensagem">
+                        MENSAGEM:
+                        <textarea name="mensagem" type="text" placeholder="Digite aqui a sua mensagem" required autocomplete="off"></textarea>
+                    </label>
+                </fieldset>
+                <fieldset class="form-field" id="submit-field">
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                </fieldset>
+            </form>
         </div>
     </div>
 
