@@ -1,4 +1,4 @@
 # Configurações do site
-baseURL = 'http://example.org/'
-languageCode = 'pt-br'
-title = '/andre-rocco's Macintosh System 1.0'
+baseURL = "http://example.org/"
+languageCode = "pt-br"
+title = "/andre-rocco's Macintosh System 1.0"
