@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div id="desktop-grid" class="no-select">
     <!-- Ícones das páginas .txt geradas a partir de content -->
-    {{ range .Pages }}
+    {{ range (where .Site.RegularPages "Section" "texts") }}
     <div class="desktop-icon" id="{{ .Page.Title }}-icon">
         <div class="icon-image">
             <img src="{{ with .Params.icon_url }}{{ . }}{{ else }}/images/note-icon-2x.png{{ end }}" alt="Macintosh notes icon">
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Páginas .txt geradas a partir de content  -->
-    {{ range .Pages }}
+    {{ range (where .Site.RegularPages "Section" "texts") }}
     <div data-window class="screen-window" id="{{ .Page.Title }}-window" style="transform: scale(0); z-index: 1">
         <div class="window-header no-select">
             <div class="window-header-title"><h1>{{ .Page.Title }}.txt</h1></div>
