@@ -382,7 +382,7 @@ textarea {
     font-size: 22px;
 }
 .form-field textarea {
-    resize:none;
+    resize: none;
     height: 160px;
 }
 #submit-field {
